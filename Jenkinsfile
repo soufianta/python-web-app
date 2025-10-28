@@ -3,8 +3,8 @@ node {
         checkout([$class: 'GitSCM',
                   branches: [[name: '*/main']],
                   userRemoteConfigs: [[
-                      url: 'git@github.com:your-user/your-python-repo.git',
-                      credentialsId: 'github-ssh-key'
+                      url: 'git@github.com:soufianta/python-web-app.git',
+                      credentialsId: 'jenkins'
                   ]]
         ])
     }
