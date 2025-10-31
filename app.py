@@ -1,4 +1,7 @@
 # pylint: disable=broad-exception-caught
+"""
+This moodule is meant for working with AWS services like S3
+"""
 from flask import Flask, render_template
 import boto3
 
@@ -12,6 +15,9 @@ BUCKET_NAME = 'your-s3-bucket-name'
 
 @app.route('/')
 def list_s3_objects():
+      """
+    List objects from a given bucket
+    """
     try:
         # Get the list of objects in the S3 bucket
         objects = s3.list_objects_v2(Bucket=BUCKET_NAME)
@@ -25,4 +31,3 @@ def list_s3_objects():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
