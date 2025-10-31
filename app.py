@@ -15,19 +15,19 @@ BUCKET_NAME = 'your-s3-bucket-name'
 
 @app.route('/')
 def list_s3_objects():
-      """
-    List objects from a given bucket
     """
-  try:
-    # Get the list of objects in the S3 bucket
-    objects = s3.list_objects_v2(Bucket=BUCKET_NAME)
+    List objects from a given S3 bucket.
+    """
+    try:
+        # Get the list of objects in the S3 bucket
+        objects = s3.list_objects_v2(Bucket=BUCKET_NAME)
         # Get the object keys (file names)
-    files = [obj['Key'] for obj in objects.get('Contents', [])]
-  except Exception as e:
-    return f"Error: {str(e)}"
+        files = [obj['Key'] for obj in objects.get('Contents', [])]
+    except Exception as e:
+        return f"Error: {str(e)}"
 
     # Pass the list of files to the HTML template for rendering
-  return render_template('list_s3.html', files=files)
+    return render_template('list_s3.html', files=files)
 
 if __name__ == '__main__':
     app.run(debug=True)
