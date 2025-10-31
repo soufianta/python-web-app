@@ -1,3 +1,4 @@
+# pylint: disable=broad-exception-caught
 from flask import Flask, render_template
 import boto3
 
